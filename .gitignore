@@ -1,6 +1,6 @@
 NeuralNetwork_Testing/NN_Inputs/*
 !NeuralNetwork_Testing/NN_Inputs/Create_NN_InputData.py
-!NeuralNetwork_Testing/NN_Inputs/Create_NN_Input/*
+!NeuralNetwork_Testing/NN_Inputs/Create_NN_Input
 
 NeuralNetwork_Testing/dataCIGE/*
 
