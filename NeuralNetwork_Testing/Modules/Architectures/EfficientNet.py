@@ -3,6 +3,7 @@ import torch
 from torchvision.models import efficientnet_b0
 
 class EfficientNet(nn.Module):
+    '1D Efficient Net Trial '
     def __init__(self):
         super().__init__()
         enb0 = efficientnet_b0(pretrained=True)

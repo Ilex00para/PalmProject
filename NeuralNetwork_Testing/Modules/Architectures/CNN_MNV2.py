@@ -3,7 +3,9 @@ from torch import nn
 
 
 class CNN_MNV2(nn.Module):
+    
     def __init__(self, k1=3,k2=3,k3=3):
+        'Reduces and afterwards increases the number of channels. Hour glass shape'
         super(CNN_MNV2, self).__init__()
 
         self.conv1 = nn.Conv1d(190, 256, kernel_size=k1, stride=1, padding=k1//2)
