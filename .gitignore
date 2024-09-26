@@ -10,5 +10,7 @@ RandomForest/RFPrediction*.csv
 RandomForest/OrderedDataset*.npy
 RandomForest/images/*
 RandomForest/Results.md
+RandomForest/FlowerNumber.csv
+RandomForest/FeatureImportance*.csv
 
 CrossValidation
