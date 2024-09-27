@@ -16,7 +16,6 @@ async-lru @ file:///work/perseverance-python-buildout/croot/async-lru_1701732681
 attrs @ file:///work/perseverance-python-buildout/croot/attrs_1698845858439/work
 Babel @ file:///work/perseverance-python-buildout/croot/babel_1698863996602/work
 bayesian-optimization==1.5.1
-beautifulsoup4 @ file:///work/perseverance-python-buildout/croot/beautifulsoup4-split_1698866859818/work
 bleach @ file:///opt/conda/conda-bld/bleach_1641577558959/work
 boltons @ file:///work/perseverance-python-buildout/croot/boltons_1698851177130/work
 Bottleneck @ file:///croot/bottleneck_1709069899917/work
