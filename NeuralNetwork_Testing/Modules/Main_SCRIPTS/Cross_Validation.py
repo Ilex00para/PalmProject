@@ -76,7 +76,7 @@ def cross_validation(dataset: BaseDatasetPalm, model_class=nn.Module, kfolds=5, 
 
         # Print progress
         if verbose:
-            print(f'Fold {int(fold) + 1} completed. RMSE: {scores['RMSE'].iloc[-1]}')
+            print(f'Fold {int(fold) + 1} completed. RMSE: {scores["RMSE"].iloc[-1]}')
 
         # Save each model per fold if specified
         if kwargs.get('save_each_model'):

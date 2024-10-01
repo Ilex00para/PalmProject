@@ -7,7 +7,11 @@ from Modules.Utils import unpack_masks
 
 
 if __name__ == '__main__':
-    "!!! Not the model just the class since the model is created several times in the cross_validation function!!!"
+    """
+    MAIN SCRIPT TO RUN CROSS VALIDATION for the CNN_MNV2 model and differently masked version of the dataset
+
+    !!! Not the model just the class since the model is created several times in the cross_validation function!!!
+    """
     model_class = CNN_MNV2
 
     #dictionary with name of the files which contain the masks
@@ -25,7 +29,9 @@ if __name__ == '__main__':
     #     'Meteo plus flowers' : ['Meteo_and_Flower_mask.npy'],
     # }
 
-    for flower in ['male', 'female']:
+    #for male and female flower prediction
+    for flower in ['male', 'female']: 
+        #for each mask in the dictionary
         for mask_key in masks_dict:
             #unpack the masks from /NeuralNetwork_Testing/NN_Inputs/NN_Inputs_masks
             mask_list = unpack_masks(masks_dict[mask_key])
@@ -33,7 +39,7 @@ if __name__ == '__main__':
             dataset = BaseDatasetPalm(flower=flower, train=True, mask=mask_list)
             #folder name to save the models
             folder_name = f'Model_MNV2_{flower}_{mask_key}/'
-            
+            #from Modules
             cross_validation(dataset=dataset,model_class=model_class, kfolds=4, epochs=50, folder_name=folder_name, save_each_model=True)
 
     with open('./CrossValidation/Mask_dictionary.txt', 'w') as f:
