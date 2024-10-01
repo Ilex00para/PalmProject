@@ -7,13 +7,17 @@ Contains the predictions of male, female flowers & the absence of flowers using 
 Following folders with data need to be present. 
 
 cwd = current working directory
+
 |___
     `NeuralNetwork_Testing`
+
     |___
         |
         |___`dataCIGE` = folder which holds the data of the different sites
+
         |
         |___`data_{site}` = folder which holds the data of site X
+        
             |
             |___`Events_tree_{site}_Charge.npy` = file for tree events (mandatory)
             |___`dfMeteoInfo.npy` = file for meteorological events
