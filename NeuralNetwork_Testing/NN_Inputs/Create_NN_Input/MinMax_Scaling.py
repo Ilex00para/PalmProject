@@ -1,5 +1,6 @@
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+import os
 from pickle import dump, load
 
 def MinMax_Scaling(Phenological_Data: np.array, Meteorological_Data: np.array, global_normalization=True) -> np.array:
@@ -23,15 +24,18 @@ def MinMax_Scaling(Phenological_Data: np.array, Meteorological_Data: np.array, g
     meteo_shape = Meteorological_Data.shape
 
     # Reshape Phenological_Data to 2D array where each row is a sample and each column is a feature
-    Phenological_Data = Phenological_Data.reshape(-1, pheno_shape[2])
-    Meteorological_Data = Meteorological_Data.reshape(-1, meteo_shape[1])
+    Phenological_Data = Phenological_Data.reshape(-1, pheno_shape[-1])
+    Meteorological_Data = Meteorological_Data.reshape(-1, meteo_shape[-1])
+    print(f'Shape of Meteo Data: {Meteorological_Data.shape}')
     
     if global_normalization: 
         print('\nGlobal Normalization is used.\n')
+        cwd = os.getcwd()
+        print(cwd)
         #load MinMax_scaler 
-        with open('/home/u108-n256/PalmProject/NeuralNetwork_Testing/NN_Inputs/Scaler_Phenological.pkl','rb') as f:
+        with open(os.path.join(cwd,'NeuralNetwork_Testing','NN_Inputs','Scaler_Phenological_global.pkl'),'rb') as f:
             MinMax_Scaler_phenological = load(f)
-        with open('/home/u108-n256/PalmProject/NeuralNetwork_Testing/NN_Inputs/Scaler_Meteorological.pkl','rb') as f:
+        with open(os.path.join(cwd,'NeuralNetwork_Testing','NN_Inputs','Scaler_Meteorological_global.pkl'),'rb') as f:
             MinMax_Scaler_meteorological = load(f)
 
         # Scale the features using MinMaxScaler

@@ -3,7 +3,7 @@ import os
 from Create_NN_Input import load_data
 from Create_NN_Input import process_phenological_data
 from Create_NN_Input import MinMax_Scaling
-from Create_NN_Input import merge_samples_meteo_pheno
+from Create_NN_Input import merge_samples_meteo_pheno, define_MinMax_Scaling
 from sklearn.model_selection import train_test_split
 
 """This script is used to create the input data for the neural network model. 
@@ -18,14 +18,15 @@ NN_inputs = The nn input data is saved as a numpy array.
 
 """
 
-site = ['PR', 'SMSE']
-
-def main(site):
+def create_raw_data(site):
     current_wkdir = os.getcwd()
     print(current_wkdir)
     #This loads the data from the directory /home/u108-n256/PalmProject/NeuralNetwork_Testing and brings them in a 
     #constant format of numpy.arrays
     Phenological_Data, Meteorological_Data = load_data(dir=os.path.join(current_wkdir,'NeuralNetwork_Testing'),site=site)
+
+    if os.path.exists(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site)) == False:
+        os.makedirs(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site))
 
     #Saving the raw data /home/u108-n256/PalmProject/NeuralNetwork_Testing/NN_Inputs/{site}/RAW_Phenological_Data.npy
     np.save(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site,'RAW_Phenological_Data'), Phenological_Data)
@@ -34,6 +35,12 @@ def main(site):
 
     """_________From here on the data sets need to be used separately as the normalizations is done separately.____________"""
 
+def create_input_data(site):
+    current_wkdir = os.getcwd()
+    
+    Phenological_Data = np.load(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site,'RAW_Phenological_Data.npy'))
+    Meteorological_Data = np.load(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site,'RAW_Meteorological_Data.npy'))
+    
     #Compressing the phenological data from days to 20-day-periods
     Phenological_Data = process_phenological_data(Phenological_Data, X=20, apply_moving_average=True)
 
@@ -49,10 +56,18 @@ def main(site):
     #Splitting the data into training and testing data
     NN_IN_Train, NN_IN_Test = train_test_split(NN_inputs, test_size=0.2, random_state=42, shuffle=False)
 
+
     np.save(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site,'NN_Inputs_Train'), NN_IN_Train)
     np.save(os.path.join(current_wkdir,'NeuralNetwork_Testing','NN_Inputs',site,'NN_Inputs_Test'), NN_IN_Test)
 
 if __name__ == '__main__':
+    site = {'PR':[],'SMSE':[]}
+    #creates the raw data for the sites
     for s in site:
         assert isinstance(s, str), 'Sitename needs to be a string'
-        main(s)
+        create_raw_data(s)
+    #defines the global scaling for the sites, means the min-max values are used for all sites    
+    define_MinMax_Scaling()
+    for s in site:
+        assert isinstance(s, str), 'Sitename needs to be a string'
+        create_input_data(s)
