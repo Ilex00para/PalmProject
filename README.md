@@ -7,7 +7,7 @@ Part of the CIGE project, which aimed to understand yield formation and sexualiz
 As the data can not be stored in the remote repository the following folders with data need to be present. 
 
 cwd = current working directory
-    |
+    
     |___
         `NeuralNetwork_Testing`
     
