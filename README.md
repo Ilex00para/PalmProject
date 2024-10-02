@@ -4,7 +4,7 @@ Part of the CIGE project, which aimed to understand yield formation and sexualiz
 ## **Info:** Before starting
 ### Data path
 
-As the data can not be stored in the remote repository the following folders with data need to be present. The data are created and stored in the `NeuralNetwork_Testing` folder which contains an empty dataCIGE folder, for each site a folder needs to created with the following name `data_{abbreviation_of_the_site}`. In the folders for each site/location at least two folders must be present: `Events_tree_{site}_Charge.npy` and `dfMeteoInfo.npy` (meteorological data of the site).
+As the data can not be stored in the remote repository the following folders with data need to be present. The data are created and stored in the `NeuralNetwork_Testing` folder which contains an empty `dataCIGE` folder. Inside of this folders need to be created for each site with the following name `data_{abbreviation_of_the_site}`. In the folders for each site/location at least two folders must be present: `Events_tree_{site}_Charge.npy` and `dfMeteoInfo.npy` (meteorological data of the site).
 
 cwd = current working directory
     
