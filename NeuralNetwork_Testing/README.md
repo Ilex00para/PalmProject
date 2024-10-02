@@ -3,3 +3,6 @@ Modular cide used during the training, prediciton and analysis (shapley) of the 
 
 ## NN_Inputs
 Creates Neural Network Input data from the `dataCIGE` folder (which is not in this repository) with the `Create_NN_InputData.py` file. Different inputs for the same architecture are used by masking the input data. The masks are created and stored in the `NN_Inputs_masks` folder. If more then two sites are used a global scaling can be applied (more specified in the NN_Inputs README)
+
+## dataCIGE
+Empty folder which contains the data used by `NN_Inputs`. Needs to be filled.
