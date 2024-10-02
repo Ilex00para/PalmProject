@@ -1,5 +1,5 @@
-# Palm 
-Contains the predictions of male, female flowers & the absence of flowers using two methods: Random Forest & Deep Learning (mainly CNNs).
+# PalmProject - CIGE
+Part of the CIGE project, which aimed to understand yield formation and sexualization of oil palm flowers using machine and deep learning methods. This repository contains code for a Random Forest & Deep Learning (mainly CNNs) for predictions of male, female flowers & the absence of flowers.
 
 ## Info Paths
 ### 1. Data path
