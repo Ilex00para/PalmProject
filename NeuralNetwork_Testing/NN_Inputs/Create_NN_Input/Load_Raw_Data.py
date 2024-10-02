@@ -11,7 +11,7 @@ from datetime import timedelta
 
 
 
-def load_data(site:str, dir='/home/u108-n256/PalmProject/NeuralNetwork_Testing'):
+def load_data(site:str, dir=''):
     '''
     Load the data from the dataCIGE folder.
     
@@ -63,9 +63,9 @@ def load_data(site:str, dir='/home/u108-n256/PalmProject/NeuralNetwork_Testing')
     folder_path = os.path.join(dir,'dataCIGE')
     
     try: #to load the events on the tree level with numpy
-        Pheno_origin = np.load(os.path.join(folder_path, f'data_{site}','Events_tree_{site}_Charge.npy'), allow_pickle=True)
+        Pheno_origin = np.load(os.path.join(folder_path, f'data_{site}',f'Events_tree_{site}_Charge.npy'), allow_pickle=True)
     except pickle.UnpicklingError: #load with pickle
-        Pheno_origin = pickle.load(os.path.join(folder_path, f'data_{site}','Events_tree_{site}_Charge.npy'))
+        Pheno_origin = pickle.load(os.path.join(folder_path, f'data_{site}',f'Events_tree_{site}_Charge.npy'))
     print(f'\nPHENOLOGICAL DATA LOADED\nfrom {folder_path + f"/data_{site}/Events_tree_{site}_Charge.npy"}\nwith Shape {Pheno_origin.shape}\n')
 
     try:

@@ -2,7 +2,8 @@ NeuralNetwork_Testing/NN_Inputs/PR/*
 NeuralNetwork_Testing/NN_Inputs/SMSE/*
 NeuralNetwork_Testing/NN_Inputs/Scaler_*.pkl
 
-NeuralNetwork_Testing/dataCIGE/*
+NeuralNetwork_Testing/dataCIGE/data_SMSE/*
+NeuralNetwork_Testing/dataCIGE/data_PR/*
 
 NeuralNetwork_Testing/Saved_Objects/*
 
