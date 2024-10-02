@@ -23,5 +23,7 @@ cwd = current working directory
             |___`dfMeteoInfo.npy` = file for meteorological events
 
 total path =  cwd + `dataCIGE/data_{site}/Events_tree_{site}_Charge.npy`
+
 `site` = abbreviation of the site, SMSE, PR, etc.
+
 Paths may be sometimes absolute and need to be set new if the repository is used on a different device.
