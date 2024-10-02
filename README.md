@@ -2,9 +2,9 @@
 Part of the CIGE project, which aimed to understand yield formation and sexualization of oil palm flowers using machine and deep learning methods. This repository contains code for a Random Forest & Deep Learning (mainly CNNs) for predictions of male, female flowers & the absence of flowers.
 
 ## **Info:** Before starting
-### 1. Data path
+### Data path
 
-As the data can not be stored in the remote repository the following folders with data need to be present. 
+As the data can not be stored in the remote repository the following folders with data need to be present. The data are created and stored in the `NeuralNetwork_Testing` folder which contains an empty dataCIGE folder, for each site a folder needs to created with the following name `data_{abbreviation_of_the_site}`. In the folders for each site/location at least two folders must be present: `Events_tree_{site}_Charge.npy` and `dfMeteoInfo.npy` (meteorological data of the site).
 
 cwd = current working directory
     
